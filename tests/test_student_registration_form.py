@@ -1,11 +1,11 @@
 from selene.support.shared import browser
 from selene import have, be
 
-from get_project_root import root_path
+import os.path
 
 
 def generate_absolute_path(relative_path):
-    path = f"{root_path(ignore_cwd=True)}/{relative_path}"
+    path = os.path.abspath(relative_path)
     return path
 
 
@@ -32,7 +32,7 @@ def test_success_submit():
     browser.element(".subjects-auto-complete__option, .css-yt9ioa-option").click()
     subject = browser.element("#subjectsContainer .subjects-auto-complete__multi-value__label").text
     browser.element("#hobbies-checkbox-1 + .custom-control-label").click()
-    browser.element("#uploadPicture").send_keys(generate_absolute_path("files/student-photo.jpeg"))
+    browser.element("#uploadPicture").send_keys(generate_absolute_path("../files/student-photo.jpeg"))
     browser.element("#currentAddress").type("Saint-Petersburg, ul. Lenina, 45")
     browser.element("#state").click()
     browser.element("#state .css-yt9ioa-option").click()
@@ -53,7 +53,7 @@ def test_success_submit():
         '13 June,1990',
         subject,
         'Sports',
-        'student-photo.jpeg'
+        'student-photo.jpeg',
         'Saint-Petersburg, ul. Lenina, 45',
         f'{state} {city}'
     ))

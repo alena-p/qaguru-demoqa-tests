@@ -6,7 +6,5 @@ from selene.support.shared import browser
 def browser_config():
     browser.config.base_url = "https://demoqa.com"
     browser.config.browser_name = "chrome"
-    #browser.config.window_width = 760
-    #browser.config.window_height = 1024
 
     yield
