@@ -45,7 +45,7 @@ def test_success_submit():
 
     browser.element("#submit").click()
     browser.element(".modal-header #example-modal-sizes-title-lg").should(be.present)
-    browser.all(".modal-body td:nth-child(even)").should(have.texts(
+    browser.element(".modal-body").all("td:nth-child(even)").should(have.texts(
         'Nichole Harvey',
         'rejet@mailinator.com',
         'Female',
@@ -53,7 +53,7 @@ def test_success_submit():
         '13 June,1990',
         subject,
         'Sports',
-        'student-photo.jpeg',
+        'student-photo.jpeg'
         'Saint-Petersburg, ul. Lenina, 45',
         f'{state} {city}'
     ))
