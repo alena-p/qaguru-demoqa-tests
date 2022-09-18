@@ -32,7 +32,7 @@ def test_success_submit():
     browser.element(".subjects-auto-complete__option, .css-yt9ioa-option").click()
     subject = browser.element("#subjectsContainer .subjects-auto-complete__multi-value__label").text
     browser.element("#hobbies-checkbox-1 + .custom-control-label").click()
-    browser.element("#uploadPicture").send_keys(generate_absolute_path("../files/student-photo.jpeg"))
+    browser.element("#uploadPicture").send_keys(generate_absolute_path("../../resources/student-photo.jpeg"))
     browser.element("#currentAddress").type("Saint-Petersburg, ul. Lenina, 45")
     browser.element("#state").click()
     browser.element("#state .css-yt9ioa-option").click()
